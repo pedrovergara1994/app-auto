@@ -31,7 +31,7 @@ export class ClientePage implements OnInit {
 
   ngOnInit() {
     listaUser.forEach(u => {
-      if (u.type === 'conductor') {
+      if (u.tipo === 'conductor') {
         this.listaConductores.push(u)
       }
     })

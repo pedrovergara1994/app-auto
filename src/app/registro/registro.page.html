@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <img class="logo" src="../../assets/img/duber.png">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-title>Registro</ion-title>
+  <ion-item>
+    <ion-label position="floating">Correo institucional</ion-label>
+    <ion-input type="email" [(ngModel)]="user.email" required ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Contraseña</ion-label>
+    <ion-input type="password" [(ngModel)]="user.password" required=""></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Nombre</ion-label>
+    <ion-input type="email" [(ngModel)]="user.nombre" required ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Apellido</ion-label>
+    <ion-input type="email" [(ngModel)]="user.apellido" required ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-checkbox [(ngModel)]="isChecked">Quiere ser conductor</ion-checkbox>
+  </ion-item>
+
+  <div *ngIf="isChecked">
+    <ion-card [ngClass]="{'disabled-form': !isChecked}">
+      <ion-card-header>
+        Registrar Vehiculo
+      </ion-card-header>
+      <ion-card-content>
+        <!-- Aquí coloca los campos de tu formulario -->
+        <ion-input placeholder="Patente" [(ngModel)]="auto.patente" [disabled]="!isChecked"></ion-input>
+        <ion-input placeholder="Marca"  [(ngModel)]="auto.marca"[disabled]="!isChecked"></ion-input>
+        <ion-input placeholder="Modelo"  [(ngModel)]="auto.modelo"[disabled]="!isChecked"></ion-input>
+        <ion-input placeholder="Año"  [(ngModel)]="auto.anio"[disabled]="!isChecked"></ion-input>
+        <!-- Otros campos del formulario -->
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+
+  <ion-item>
+    <ion-button class="ion-padding" color="primary" expand="full" (click)="registrar()">Registrarse</ion-button>
+    <ion-item *ngIf="successMessage" color="success">{{ successMessage }}</ion-item>
+<ion-item *ngIf="errorMessage" color="danger">{{ errorMessage }}</ion-item>
+  </ion-item>
+
+</ion-content>

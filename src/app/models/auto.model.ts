@@ -1,9 +1,9 @@
 export interface Auto {
     marca: string;
     modelo : string;
-    matricula : string;
+    patente : string;
     color: string;
-    anio : string;
+    anio : number;
     cantidadasientos: string;
-    
+
 }
